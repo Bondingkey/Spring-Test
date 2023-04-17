@@ -12,6 +12,7 @@
     <modules>
         <module>MyBatis</module>
         <module>MyBatis_MBG</module>
+        <module>Spring</module>
     </modules>
 
     <properties>
