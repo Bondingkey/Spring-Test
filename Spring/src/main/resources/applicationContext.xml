@@ -1,18 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       https://www.springframework.org/schema/util/spring-util.xsd"
+>
+
+    <!-- 为每一个bean添加后置处理器 -->
+<!--    <bean class="com.gzc.processor.MyPostProcessor"></bean>-->
+
 
     <!-- 将对象装备到ioc容器中 -->
+    <!-- set方式注入数值 -->
     <bean id="stuGZC" class="com.gzc.Student">
         <property name="id" value="001"></property>
         <property name="name" value="管志成"></property>
     </bean>
 
     <bean id="stuGZC1" class="com.gzc.Student">
+        <property name="id">
+            <value>002</value>
+        </property>
+        <property name="name">
+            <value><![CDATA[<<<<管志成>>>>>]]>></value>
+        </property>
+    </bean>
+
+    <!-- constructor-arg==构造器方式注入数值 -->
+    <bean id="stu03" class="com.gzc.Student">
+        <!-- name为构造器的参数列表名,value为值 -->
+        <constructor-arg name="id"  value="003"></constructor-arg>
+        <constructor-arg name="name" value="张三"></constructor-arg>
+    </bean>
+
+    <!-- 通过p名称空间来进行赋值 -->
+    <bean id="stu04" class="com.gzc.Student" p:id="004" p:name="李四"></bean>
+
+    <!-- 引用外部已经声明的bean -->
+    <bean id="dept1" class="com.gzc.Dept">
+        <property name="deptId" value="1"></property>
+        <property name="deptName" value="研发部"></property>
+    </bean>
+
+    <bean id="emp01" class="com.gzc.Employee">
+        <property name="id" value="001"></property>
+        <property name="lastName" value="emp001"></property>
+        <property name="email" value="01@emp.com"></property>
+        <property name="salary" value="5000"></property>
+        <!-- 引用非数值类型的值需要用到ref -->
+        <property name="dept" ref="dept1"></property>
+        <property name="dept.deptName" value="财务部"></property>
+    </bean>
+
+    <!-- 内部bean方式 -->
+    <bean id="emp02" class="com.gzc.Employee">
         <property name="id" value="002"></property>
-        <property name="name" value="管志成1"></property>
+        <property name="lastName" value="emp002"></property>
+        <property name="email" value="02@emp.com"></property>
+        <property name="salary" value="6000"></property>
+        <!-- 内部声明方式 -->
+        <property name="dept">
+            <bean class="com.gzc.Dept">
+                <property name="deptId" value="2"></property>
+                <property name="deptName" value="人事部"></property>
+            </bean>
+        </property>
+    </bean>
+
+    <!-- list集合引入 -->
+    <bean id="dept3" class="com.gzc.Dept">
+        <property name="deptId" value="3"></property>
+        <property name="deptName" value="市场部"></property>
+        <property name="empList" >
+            <list>
+                <ref bean="emp01"></ref>
+                <ref bean="emp02"></ref>
+            </list>
+        </property>
+    </bean>
+
+    <!-- list集合导入util:list集合 -->
+    <util:list id="emplist">
+        <ref bean="emp01"></ref>
+        <ref bean="emp02"></ref>
+    </util:list>
+
+    <bean id="dept4" class="com.gzc.Dept">
+        <property name="deptId" value="3"></property>
+        <property name="deptName" value="市场部"></property>
+        <property name="empList" ref="emplist"></property>
+    </bean>
+
+    <!-- map集合引入 -->
+    <bean id="dept5" class="com.gzc.Dept">
+        <property name="deptId" value="4"></property>
+        <property name="deptName" value="后勤部"></property>
+        <property name="employeeMap">
+            <map>
+                <entry>
+                    <key><value>1</value></key>
+                    <ref bean="emp01"></ref>
+                </entry>
+                <entry>
+                    <key><value>2</value></key>
+                    <ref bean="emp02"></ref>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <!-- map集合导入 -->
+    <util:map id="map">
+        <entry>
+            <key><value>1</value></key>
+            <ref bean="emp01"></ref>
+        </entry>
+        <entry>
+            <key><value>2</value></key>
+            <ref bean="emp02"></ref>
+        </entry>
+    </util:map>
+
+    <bean id="dept6" class="com.gzc.Dept">
+        <property name="deptId" value="4"></property>
+        <property name="deptName" value="后勤部"></property>
+        <property name="employeeMap" ref="map"></property>
+    </bean>
+
+    <bean id="dept7" class="com.gzc.Dept" scope="prototype">
+        <property name="deptId" value="5"></property>
+        <property name="deptName" value="行政部"></property>
+    </bean>
+
+    <bean id="stu05"
+          class="com.gzc.Student"
+          init-method="initmothed"
+          destroy-method="destorymothed"
+    >
+        <property name="id" value="005"></property>
+        <property name="name" value="王五"></property>
     </bean>
 
 

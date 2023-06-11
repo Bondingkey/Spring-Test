@@ -20,12 +20,21 @@ public class Student {
                 '}';
     }
 
+    public void initmothed(){
+        System.out.println("3.对象初始化");
+    }
+    public void destorymothed(){
+        System.out.println("对象销毁");
+    }
+
     public Student(Integer id, String name) {
+        //System.out.println("通过构造器进行数值注入");
         this.id = id;
         this.name = name;
     }
 
     public Student() {
+        System.out.println("1.创建构造器");
     }
 
     public Integer getId() {
@@ -33,6 +42,8 @@ public class Student {
     }
 
     public void setId(Integer id) {
+        System.out.println("2.设置属性");
+        //System.out.println("通过Set方式注入数值验证");
         this.id = id;
     }
 
@@ -43,4 +54,5 @@ public class Student {
     public void setName(String name) {
         this.name = name;
     }
+
 }
