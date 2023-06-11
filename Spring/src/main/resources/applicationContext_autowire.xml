@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       http://www.springframework.org/schema/beans/spring-beans.xsd"
+>
+
+    <!-- 将DeptDao装配到容器中 -->
+    <!-- byName:此处的id需要与对象中的属性名一样 -->
+    <bean id="deptDao" class="com.gzc.dao.impl.DeptDaoImpl"></bean>
+
+    <!-- 将Dept对象注入到DeptServiceImpl中 -->
+    <!-- 手动注入 -->
+<!--    <bean id="DeptService" class="com.gzc.service.impl.DeptServiceImpl">-->
+<!--        <property name="deptDao" ref="DeptDao"></property>-->
+<!--    </bean>-->
+
+    <!-- 自动注入 -->
+    <!-- byName:属性名与id值匹配-->
+    <!-- byType:属性类型与class类型匹配,0个空指针,多个异常 -->
+    <bean id="DeptService"
+          class="com.gzc.service.impl.DeptServiceImpl"
+          autowire="byType"
+    ></bean>
+
+
+</beans>

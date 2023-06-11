@@ -130,11 +130,13 @@
         <property name="employeeMap" ref="map"></property>
     </bean>
 
+    <!-- bean的作用域 -->
     <bean id="dept7" class="com.gzc.Dept" scope="prototype">
         <property name="deptId" value="5"></property>
         <property name="deptName" value="行政部"></property>
     </bean>
 
+    <!-- bean的生命周期 -->
     <bean id="stu05"
           class="com.gzc.Student"
           init-method="initmothed"

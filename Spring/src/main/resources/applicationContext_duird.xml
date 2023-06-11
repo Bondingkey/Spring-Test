@@ -11,10 +11,10 @@
        http://www.springframework.org/schema/context
        https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!--  加载外部属性文件db.properties-->
+    <!-- 加载外部属性文件db.properties-->
     <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
 
-    <!--  装配数据源-->
+    <!-- 装配数据源-->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
         <property name="driverClassName" value="${db.driverClassName}"></property>
         <property name="url" value="${db.url}"></property>

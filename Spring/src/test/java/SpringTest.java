@@ -3,6 +3,7 @@ import com.alibaba.druid.pool.DruidPooledConnection;
 import com.gzc.Dept;
 import com.gzc.Employee;
 import com.gzc.Student;
+import com.gzc.service.impl.DeptServiceImpl;
 import org.junit.Test;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
@@ -45,6 +46,7 @@ public class SpringTest{
     }
 
     @Test
+    //bean的常规测试
     public void test2(){//获取getbean的方式
 
         //获取ioc容器对象
@@ -90,13 +92,20 @@ public class SpringTest{
     }
 
     @Test
+    //bean的作用域的测试
     public void test3(){
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-
-        //bean的作用的测试
         Dept dept7 = applicationContext.getBean("dept7", Dept.class);
         Dept dept71 = applicationContext.getBean("dept7", Dept.class);
         System.out.println("是否为同一对象?" + (dept7==dept71));
+
+    }
+
+    @Test
+    public void test4(){
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext_autowire.xml");
+        DeptServiceImpl deptService = applicationContext.getBean("DeptService", DeptServiceImpl.class);
+        deptService.saveDept(new Dept());
 
     }
 }
