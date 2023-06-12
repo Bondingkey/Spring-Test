@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd"
+>
+
+    <!-- 开启普通组件扫描 -->
+    <context:component-scan base-package="com.gzc"></context:component-scan>
+
+    <!-- 有选择的组件扫描 -->
+<!--    <context:component-scan base-package="com.gzc.dao,com.gzc.service"></context:component-scan>-->
+
+    <!-- 包含与排除扫描 -->
+    <!-- 需要先关闭默认扫描: use-default-filters="false"-->
+<!--    <context:component-scan base-package="com.gzc" use-default-filters="false">-->
+<!--        &lt;!&ndash; annotation:扫描匹配的注解,expression中填写要扫描到的注解的全路径 &ndash;&gt;-->
+<!--        <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>-->
+<!--        &lt;!&ndash; assignable:扫描类,expression中填写类路径 &ndash;&gt;-->
+<!--        <context:include-filter type="assignable" expression="com.gzc.controller.DeptController"/>-->
+<!--        &lt;!&ndash; 排除同理 &ndash;&gt;-->
+<!--        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service"/>-->
+<!--        <context:exclude-filter type="assignable" expression="com.gzc.service.impl.DeptServiceImpl"/>-->
+<!--    </context:component-scan>-->
+
+
+</beans>

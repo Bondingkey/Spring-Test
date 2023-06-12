@@ -1,20 +1,20 @@
 package com.gzc.dao.impl;
 
-import com.gzc.Dept;
 import com.gzc.dao.DeptDao;
+import com.gzc.pojo.Dept;
 import org.springframework.stereotype.Repository;
 
 /**
  * @author: 拿破仑
- * @Date&Time: 2023/06/11  21:47  周日
+ * @Date&Time: 2023/06/12  15:04  周一
  * @Project: SSMTest
  * @Write software: IntelliJ IDEA
  * @Purpose: 在此处编辑
  */
-@Repository("deptimpl")
-public class DeptDaoImpl implements DeptDao {
+//@Repository("DeptDao66")
+public class DeptDaoImpl2 implements DeptDao {
     @Override
-    public void addDept(Dept dept) {
-        System.out.println("添加部门方法成功了!!");
+    public void insertDept(Dept dept) {
+        System.out.println("哈哈哈哈哈!!!");
     }
 }

@@ -4,6 +4,7 @@ import com.gzc.Dept;
 import com.gzc.dao.DeptDao;
 import com.gzc.dao.impl.DeptDaoImpl;
 import com.gzc.service.DeptService;
+import org.springframework.stereotype.Service;
 
 /**
  * @author: 拿破仑
@@ -12,6 +13,7 @@ import com.gzc.service.DeptService;
  * @Write software: IntelliJ IDEA
  * @Purpose: 在此处编辑
  */
+@Service("Service")
 public class DeptServiceImpl implements DeptService {
 
     //buName:该属性名需要与xml文件中的id保持一直
