@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class DeptServiceImpl implements DeptService {
 
-    @Autowired(required = false)//为属性设置自动装配,先按type后name,required为是否使用强制装配,ture:不装配会报错
+    @Autowired()//为属性设置自动装配,先按type后name,required为是否使用强制装配,ture:不装配会报错
     @Qualifier("DeptDao")//用来将beanId对应的对象注入到属性中,不能单独使用需配合Autowired
     private DeptDao deptDao;
 

@@ -20,8 +20,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  * @Write software: IntelliJ IDEA
  * @Purpose: 在此处编辑
  */
-@ContextConfiguration(locations = "classpath:applicationContext.xml")
-@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = "classpath:applicationContext.xml")//标识配置文件
+@RunWith(SpringJUnit4ClassRunner.class)//标识整合的junit版本
 public class SpringTest {
 
     @Test
@@ -58,17 +58,17 @@ public class SpringTest {
     @Test
     //0xml配置(完全注解开发)
     public void test3(){
-        //通过配置类来加载配置信息
+        //通过配置类对象AnnotationConfigApplicationContext来加载配置信息
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConf.class);
         Dept dept = applicationContext.getBean("dept", Dept.class);
         System.out.println("dept = " + dept);
 
     }
 
+    //Spring整合Junit4
     @Autowired
     DeptServiceImpl deptServiceImpl;
     @Test
-    //Spring整合Junit4
     public void test4(){
         deptServiceImpl.saveDept(new Dept());
     }

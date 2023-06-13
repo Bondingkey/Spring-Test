@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @Purpose: 在此处编辑
  */
 
-@Configuration//配置类
-@ComponentScan(basePackages = "com.gzc")//扫描范围
+@Configuration//表示当前类为配置类
+@ComponentScan(basePackages = "com.gzc")//设置扫描范围
 public class SpringConf {
 }
