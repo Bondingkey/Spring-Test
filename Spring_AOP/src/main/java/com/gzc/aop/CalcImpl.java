@@ -15,6 +15,8 @@ public class CalcImpl implements Calc{
     public int add(int a, int b) {
         //MyLogging.beforeMethod("add",new Object[]{a,b});
         int result = a+b;
+        //出现异常后置通知也会执行
+        //int i= 1/0;
         //MyLogging.afterMethod("add",result);
         return result;
     }

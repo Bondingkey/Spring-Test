@@ -20,8 +20,13 @@ public class AOPTest {
         Calc calc = applicationContext.getBean("calcImpl", Calc.class);
 
         int add = calc.add(3, 3);
-
         System.out.println("add = " + add);
+        int sub = calc.sub(5, 5);
+        System.out.println("sub = " + sub);
+        int div = calc.div(4, 4);
+        System.out.println("div = " + div);
+        int mul = calc.mul(5, 5);
+        System.out.println("mul = " + mul);
 
     }
 }
