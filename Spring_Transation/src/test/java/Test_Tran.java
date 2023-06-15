@@ -1,10 +1,12 @@
 import com.gzc.service.BookShopService;
 import com.gzc.service.CashierService;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
@@ -18,8 +20,7 @@ import java.util.Stack;
  * @Write software: IntelliJ IDEA
  * @Purpose: 在此处编辑
  */
-@ContextConfiguration(locations = "classpath:applicationContext.xml")
-@RunWith(SpringJUnit4ClassRunner.class)
+@SpringJUnitConfig(locations = "classpath:applicationContext.xml")//Spring整合Junit5
 public class Test_Tran {
 
 //    @Autowired
