@@ -19,6 +19,7 @@
         <module>Spring_AOP</module>
         <module>Spring_JdbcTemplate</module>
         <module>Spring_Transation</module>
+        <module>SpringMVC</module>
     </modules>
 
     <properties>
