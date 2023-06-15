@@ -16,6 +16,7 @@
         <module>Spring_Ann</module>
         <module>Spring_AOP</module>
         <module>Spring_JdbcTemplate</module>
+        <module>Spring_Transation</module>
     </modules>
 
     <properties>
